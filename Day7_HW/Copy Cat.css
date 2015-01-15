@@ -1,0 +1,11 @@
+html,
+
+
+body {background-color: cornsilk;
+      list-style-image: none;  
+}
+.menu-ops {
+   background-color:lightgrey;
+   list-style: none;
+   bottom-margin: 90%;
+}
