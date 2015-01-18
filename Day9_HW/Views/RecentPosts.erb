@@ -1,18 +1,24 @@
+<style type="text/css">
 
-
-<%= @ray.date %>
-<%= @ray.fruit %>
-<%= @ray.exercise %>
-<%= @ray.fresh_air %>
-<%= @ray.people_slapped %>
-<%= @ray.deep_thought %>
-
+ul {
+	list-style:none
+}
+</style>
 
 
 
 
+<form action="/RecentPosts" method="get">
 
-	
+<label><%= @posts %></label>
 
 
-<a href="/SuperHappyFunTime">back</a>
+	<ul>
+		<li></li>
+		<li><button name="edit">Edit</button></li>
+		<li><button name="delete">Delete</button></li>
+	</ul>
+</form>
+
+<a href='/'>back</a>
+

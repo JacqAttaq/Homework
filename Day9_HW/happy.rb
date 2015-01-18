@@ -12,6 +12,7 @@ DataMapper.setup(
 
 class Sunshine
 	include DataMapper::Resource
+
 	property :id, Serial
 	property :date, String
 	property :fruit, String
@@ -21,13 +22,12 @@ class Sunshine
 	property :people_slapped, String
 	property :deep_thought, String
 end
+
+
 DataMapper.finalize.auto_upgrade!
 
 get '/'  do
-	@ray=Sunshine.all
 	erb :SuperHappyFunTime, layout: :bones
-
-
 end
 
 
@@ -53,7 +53,6 @@ get '/RecentPosts' do
 	erb :RecentPosts, layout: :bones
 end
 
-post '/RecentPosts/:id' do
-	p params Sunshine.each
-	erb :RecentPosts
+get '/RecentPosts' do
+   @posts = Sunshine.all(:order => [ :date.desc ])
 end
