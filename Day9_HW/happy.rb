@@ -54,5 +54,6 @@ get '/RecentPosts' do
 end
 
 get '/RecentPosts' do
-   @posts = Sunshine.all(:order => [ :date.desc ])
+   @rays = Sunshine.get params[:id]
+   erb :RecentPosts
 end

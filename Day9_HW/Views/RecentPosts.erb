@@ -1,24 +1,23 @@
 <style type="text/css">
 
-ul {
+	ul {
 	list-style:none
-}
+	}
 </style>
 
 
-
-
-<form action="/RecentPosts" method="get">
-
-<label><%= @posts %></label>
-
-
+<%= @rays do |ray| %>
 	<ul>
-		<li></li>
-		<li><button name="edit">Edit</button></li>
-		<li><button name="delete">Delete</button></li>
+		<li>date<%=ray.date;%></li>
 	</ul>
-</form>
+<%= end %>
+
+
+<ul>
+	<li></li>
+	<li><button name="edit">Edit</button></li>
+	<li><button name="delete">Delete</button></li>
+</ul>
+
 
 <a href='/'>back</a>
-
