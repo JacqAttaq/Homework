@@ -1,0 +1,11 @@
+<h1>Woot</h1>
+
+<%= link_to "New Prize", new_prize_path %>
+<br>
+<% @prizes.each do |prize| %>
+	<%=prize.name %>
+		<%= link_to prize.name, prize_path(prize) %>
+		<%= link_to "Edit", edit_prize_path(prize)  %>
+		<%= link_to "Delete", prize_path(prize), method: :delete %>
+	<br>
+<%end%>

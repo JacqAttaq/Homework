@@ -1,59 +1,42 @@
 require 'sinatra'
 require 'data_mapper'
 require 'dm-mysql-adapter'
-require 'mysql'
+# require 'mysql'
 
 
 
-DataMapper.setup(
+DataMapper.setup (
 	:default,
-	'mysql://root@localhost/happy'
+	'mysql://root@localhost/damn_kids'
 )
 
-class Sunshine
-	include DataMapper::Resource
 
+class Blog
+	include DataMapper::Resourse
 	property :id, Serial
-	property :date, String
-	property :fruit, String
-	property :vegetables, String
-	property :exercise, String
-	property :fresh_air, String
-	property :people_slapped, String
-	property :deep_thought, String
+	property :title, String
+	property :rant, String
+end 
+
+DataMapper.finalize.auto_uprade!
+
+
+get '/' do
+	erb :snafu, layout: :bones
 end
 
-
-DataMapper.finalize.auto_upgrade!
-
-get '/'  do
-	erb :SuperHappyFunTime, layout: :bones
+get '/now' do
+	erb :now, layout: :bones
 end
 
-
-get '/CreateNewPost' do
-	erb :CreateNewPost, layout: :bones
-end
-
-post '/CreateNewPost' do
+post '/now' do
 	p params
-	@ray = Sunshine.new 	
-	@ray.date = params[:date]
-	@ray.fruit = params[:fruit]
-	@ray.vegetables = params[:vegetables]
-	@ray.exercise = params[:exercise]
-	@ray.fresh_air = params[:fresh_air]
-	@ray.people_slapped = params[:people_slapped]
-	@ray.deep_thought = params[:deep_thought]
-	@ray.save
+	@blog = Blog.new
+	@blog.id = params[:id]
+	@blog.title = params[:title]
+	@blog.rant = params[:rant]
+	@blog.save
 	redirect to '/'
 end
 
-get '/RecentPosts' do
-	erb :RecentPosts, layout: :bones
-end
 
-get '/RecentPosts' do
-   @rays = Sunshine.get params[:id]
-   erb :RecentPosts
-end
