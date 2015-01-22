@@ -12,7 +12,9 @@
   <%= f.text_area :description  %>
   <br>
   <%= f.label :gender %>
-  <%= f.select :gender, options_for_select([ "--select--","Male", "Female", "Trans"]) %>
+  <br>
+  <%= f.radio_button :gender, value = "male" %>Male <br>
+  <%= f.radio_button :gender, value = "female" %>Female
   <br>
   <%= f.label :blood_type %>
   <%= f.select :blood_type, options_for_select([ "--select--","A-","A+","B-","B+","AB-","AB+","O-","O+"]) %>
