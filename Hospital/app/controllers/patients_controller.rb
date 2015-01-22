@@ -4,12 +4,19 @@ class PatientsController < ApplicationController
   end
 
   def new
-    @patient = Patient.new
+    @patient = Patient.new 
   end
 
   def create 
     @patient = Patient.create pat_params
+     if @patient.save
+      flash[:notice] = 'Record Created'
+      redirect_to patients_path
+    else
+      flash[:error] = 'No Record Created'
+      render :new
     redirect_to patients_path
+    end
   end
 
   def edit

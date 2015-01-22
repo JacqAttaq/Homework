@@ -1,4 +1,10 @@
 <%= form_for @patient do |f| %>
+  <% if @patient.errors.any? %>
+  <p id="notice"><%= notice %></p>
+    <% @patient.errors.full_messages.each do |message| %>
+      <%= message %>
+
+
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <br>
@@ -13,11 +19,11 @@
   <br>
   <%= f.label :gender %>
   <br>
-  <%= f.radio_button :gender, value = "male" %>Male <br>
-  <%= f.radio_button :gender, value = "female" %>Female
+  <%= f.radio_button :gender, value = "true" %>Male <br>
+  <%= f.radio_button :gender, value = "false" %>Female
   <br>
   <%= f.label :blood_type %>
-  <%= f.select :blood_type, options_for_select([ "--select--","A-","A+","B-","B+","AB-","AB+","O-","O+"]) %>
+  <%= f.select :blood_type, options_for_select(Patient::B_T_OPTIONS, f.object.blood_type), include_blank: "---select---"  %>
   <br>
   <%= f.submit %>
 <% end %>
