@@ -1,3 +1,14 @@
-Regional Hospital Diretory
+<h1>Regional Hospital Diretory</h1>
+
+
+<ul>
+  <% @facilities.each do |facility| %>
+    <li>
+      <%= facility.name %>
+      <%= link_to "Edit", edit_facility_path(facility) %>
+      <%= link_to "Delete", facility_path(facility), method: :delete %>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to "Create New Facility", new_facility_path %>

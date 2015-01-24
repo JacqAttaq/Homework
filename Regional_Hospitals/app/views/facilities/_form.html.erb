@@ -1,10 +1,16 @@
-<% form_for @facility do |f| %>
 
-f.label name
-f.text_field "name"
 
-f.label address
-f.text_field "address"
+<%= form_for @facility do |f| %>
 
-f.label zip code
-f.integer "zip"
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+    <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,6 +1,6 @@
 class Patient < ActiveRecord::Base
 
-belongs_to :hospital
+belongs_to :faciliy
 has_many :meds
 
 B_T_OPTIONS = [
