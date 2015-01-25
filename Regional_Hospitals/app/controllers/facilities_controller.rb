@@ -1,4 +1,6 @@
 class FacilitiesController < ApplicationController
+  before_action :set_facility, only: [:show, :edit, :update, :destroy]
+
   def index
     @facilities = Facility.all
   end
@@ -17,14 +19,22 @@ class FacilitiesController < ApplicationController
   end
 
   def destroy
-     @facility = Facility.find params[:id]
-    @facility.delete
+    @facility.destroy
     redirect_to facilities_path
   end
 
+  def show
+    @facility = Facility.find params[:id]
+    @patients = @facility.patients
+  end
 
 
 private
+
+  def set_facility
+    @facility = Facility.find(params[:id])
+  end
+  
   def fac_params 
     params.require(:facility).permit(
       :name,

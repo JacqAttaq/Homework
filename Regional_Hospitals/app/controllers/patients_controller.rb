@@ -1,14 +1,17 @@
 class PatientsController < ApplicationController
+  
   def index
     @patients = Patient.all
   end
 
   def new
-    @patient = Patient.new 
+    @facility = Facility.find params[:facility_id]
+    @patient = @facility.patients.new
   end
 
   def create 
-    @patient = Patient.create pat_params
+    @facility = Facility.find params [:facility_id]
+    @patient = @facility.patients.create patient params
      if @patient.save
       flash[:notice] = 'Record Created'
       redirect_to patients_path
@@ -16,25 +19,26 @@ class PatientsController < ApplicationController
       flash[:error] = 'No Record Created'
       render :new
     end
+    redirect_to facility_path(@facility)
   end
 
   def edit
-    @patient = Patient.find params[:id]
+    @patients = Patient.find params[:id]
   end
 
   def update
-    @patient = Patient.find params[:id]
     @patient.update_attributes pat_params
     redirect_to patients_path 
   end
 
   def destroy
-    @patient = Patient.find params[:id]
+    @patient = Patient.find params [:id]
     @patient.delete
     redirect_to patients_path
   end
 
 private
+
 
   def pat_params
     params.require(:patient).permit(
