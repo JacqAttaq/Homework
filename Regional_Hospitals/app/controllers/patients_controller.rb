@@ -23,17 +23,19 @@ class PatientsController < ApplicationController
   end
 
   def edit
-    @patients = Patient.find params[:id]
+    @facility = Facility.find params[:facility_id]
+    @patient = Patient.find params[:id]
   end
 
   def update
+    @facility = Facility.find params[:facility_id]
     @patient.update_attributes pat_params
     redirect_to patients_path 
   end
 
   def show
-    @facility = Facility.find parmas[:facility_id]
     @patient = Patient.find params[:id]
+    @facility =Facility.find params[:facility_id]
   end
 
   def destroy

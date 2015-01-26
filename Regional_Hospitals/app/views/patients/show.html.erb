@@ -1,0 +1,11 @@
+<h1>Patient Information</h1>
+
+<%= @patient.first_name %>
+<%= @patient.last_name %>
+<%= @patient.d_o_b %>
+<%= @patient.description %>
+<%= @patient.gender %>
+<%= @patient.blood_type %>
+
+<%= link_to "Update", edit_facility_patient_path(@facility, @patient) %>
+<%= link_to "New Medication", new_facility_patient_med_path(@facility, @patient) %>
