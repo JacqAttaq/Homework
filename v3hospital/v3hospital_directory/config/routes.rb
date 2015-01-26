@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
- resources :facilities do
-  resources :patients do
-    resources :meds
-    end
-  end
+  resources :facilities do
+    resources :patients
+  end  
+  resources :meds
+  
+  
+ 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

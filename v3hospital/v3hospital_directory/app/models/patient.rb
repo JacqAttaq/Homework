@@ -1,6 +1,5 @@
 class Patient < ActiveRecord::Base
 
-belongs_to :faciliy
 has_many :patient_meds
 has_many :meds, through: :patient_meds
 
