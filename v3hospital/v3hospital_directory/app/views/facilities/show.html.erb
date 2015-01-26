@@ -1,0 +1,7 @@
+<h3>Hospital Information</h3>
+
+<%= @facility.name %>
+<%= @facility.address %>
+<%= @facility.zip %>
+
+<%= link_to "Patient Records", facility_patients_path(@facility) %>
