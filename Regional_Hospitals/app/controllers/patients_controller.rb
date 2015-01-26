@@ -10,16 +10,15 @@ class PatientsController < ApplicationController
   end
 
   def create 
-    @facility = Facility.find params [:facility_id]
-    @patient = @facility.patients.create patient params
+    @facility = Facility.find params[:facility_id]
+    @patient = @facility.patients.create pat_params
      if @patient.save
       flash[:notice] = 'Record Created'
-      redirect_to patients_path
+      redirect_to facility_patients_path
     else
       flash[:error] = 'No Record Created'
       render :new
     end
-    redirect_to facility_path(@facility)
   end
 
   def edit
@@ -32,9 +31,10 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-    @patient = Patient.find params [:id]
-    @patient.delete
-    redirect_to patients_path
+    @facility = Facility.find params[:facility_id]
+    @patient = Patient.find params[:id]
+    @patient.destroy
+    redirect_to facility_patients_path
   end
 
 private

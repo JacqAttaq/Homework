@@ -8,6 +8,7 @@
     <li>
       <%= patient.first_name %>
       <%= patient.last_name %>
+      <%= link_to "Delete", facility_patient_path(@facility @patient), method: :delete %>
   </li>
   <% end %>
 </ul>

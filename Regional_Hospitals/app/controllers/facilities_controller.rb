@@ -18,6 +18,11 @@ class FacilitiesController < ApplicationController
     @facility = Facility.find params[:id]
   end
 
+  def update
+  @facility.update(fac_params)
+  redirect_to @facility
+  end
+
   def destroy
     @facility.destroy
     redirect_to facilities_path
