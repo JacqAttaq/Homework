@@ -32,8 +32,10 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @patients = Patient.all
     @facility = Facility.find params[:facility_id]
     @patient = Patient.find params[:id]
+    @meds = @patient.meds
   end
 
   def destroy
@@ -45,6 +47,9 @@ class PatientsController < ApplicationController
 
 private
 
+  def find_patient
+    @patient = Patient.find params[:id]
+  end 
 
   def pat_params
     params.require(:patient).permit(
@@ -54,7 +59,8 @@ private
     :description,
     :gender,
     :blood_type,
-    med_ids: []
+    med_ids: [],
+    patient_ids: []
     )
   end
 end
