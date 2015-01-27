@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :facilities do
+    member do
+      post :create_doctor
+    end
     resources :patients
   end  
   resources :meds

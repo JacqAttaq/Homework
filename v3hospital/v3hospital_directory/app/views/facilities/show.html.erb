@@ -6,3 +6,9 @@
 
 <%= link_to "Patient Records", facility_patients_path(@facility) %>
 <%= link_to "Medications", meds_path %>
+<p>
+<%= @facility.doctors.each do | doctor| %>
+  <%= doctor.name %>
+  <%= doctor.specialty %>
+<% end %>
+</p>

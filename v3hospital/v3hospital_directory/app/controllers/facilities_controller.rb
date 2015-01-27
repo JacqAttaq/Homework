@@ -14,6 +14,11 @@ class FacilitiesController < ApplicationController
     redirect_to facilities_path
   end
 
+  def create_doctor
+    @facility = Facility.find params[:id]
+    @doctor = @facility.doctors.create doctor_params
+    redirect_to facility_path(@facility)
+  end
   def edit
     @facility = Facility.find params[:id]
   end
@@ -31,11 +36,19 @@ class FacilitiesController < ApplicationController
   def show
     @facility = Facility.find params[:id]
     @patients = @facility.patients
+    @doctor = Doctor.new
   end
 
 
 private
 
+  def doctor_params
+    params.require(:doctor).permit(
+      :name,
+      :specialty
+      )
+  end
+  
   def set_facility
     @facility = Facility.find(params[:id])
   end

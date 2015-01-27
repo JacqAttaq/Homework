@@ -27,7 +27,8 @@ private
     params.require(:med).permit(
   :name,
   :dose,
-  :description
+  :description,
+  patient_ids: []
   )
 end
 

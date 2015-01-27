@@ -32,14 +32,14 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @facility = Facility.find parmas[:facility_id]
+    @facility = Facility.find params[:facility_id]
     @patient = Patient.find params[:id]
   end
 
   def destroy
     @facility = Facility.find params[:facility_id]
     @patient = Patient.find params[:id]
-    @patient.destroy
+    @patient.delete
     redirect_to facility_patients_path
   end
 
@@ -54,6 +54,7 @@ private
     :description,
     :gender,
     :blood_type,
+    med_ids: []
     )
   end
 end
