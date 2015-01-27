@@ -14,5 +14,23 @@
   <% end %>
 </ul>
 
+<ul>
+<%= @doctors.each do |doctor| %>
+  <li>
+    <%= doctor.doctor_name %>
+
+  </li>
+<% end %>
+</ul>
+
+<%= form_for @dcotor, url: create_doctor_facility_path(@facility) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+  <br>
+  <%= f.label :specialty %>
+  <%= f.text_area :specialty %>
+  <br>
+  <%= f.submit %>
+<%= end %>
 
 <%= link_to "Home", root_path %>

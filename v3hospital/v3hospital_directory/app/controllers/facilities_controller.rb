@@ -19,6 +19,7 @@ class FacilitiesController < ApplicationController
     @doctor = @facility.doctors.create doctor_params
     redirect_to facility_path(@facility)
   end
+  
   def edit
     @facility = Facility.find params[:id]
   end
@@ -37,6 +38,7 @@ class FacilitiesController < ApplicationController
     @facility = Facility.find params[:id]
     @patients = @facility.patients
     @doctor = Doctor.new
+    @doctors = @facility.doctors
   end
 
 

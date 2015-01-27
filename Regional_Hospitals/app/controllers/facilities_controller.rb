@@ -33,6 +33,11 @@ class FacilitiesController < ApplicationController
     @patients = @facility.patients
   end
 
+  def create_doctor
+    @facility = Facility.find params[:id]
+    @doctor = @facility.doctors.create doc_params
+    redirect_to facility_path(@facility)
+  end
 
 private
 
@@ -47,6 +52,11 @@ private
       :zip,
     )
   end
-
+  def doc_params:
+    params.require(:doctor).permit(
+      :name,
+      :specialty
+      )
+  end
 
 end
