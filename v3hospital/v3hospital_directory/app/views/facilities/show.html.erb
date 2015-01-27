@@ -7,10 +7,24 @@
 <%= link_to "Patient Records", facility_patients_path(@facility) %>
 <%= link_to "Medications", meds_path %>
 <p>
-<%= @facility.doctors.each do | doctor| %>
-  <%= doctor.name %>
-  <%= doctor.specialty %>
+
+<h4>Physicians </h4>
+<ul>
+  <%= @facility.doctors.each do | doctor| %>
+    <li>
+      <%= doctor.name %>
+      <%= doctor.specialty %>
+    </li>  
+  <% end %>
+</ul>
+
+<%= form_for @doctor, url: create_doctor_facility_path(@facility) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :specialty %>
+  <%= f.text_field :specialty %>
+  <br>
+  <%= f.submit %>
 <% end %>
 
-<%= form_for create_doctor
-</p>
