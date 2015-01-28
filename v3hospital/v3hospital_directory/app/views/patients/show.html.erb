@@ -9,7 +9,6 @@
 
 <%= link_to "Back", facility_patients_path(@facility) %>
 
-<%= link_to "Add Medication", new_med_path %>
 <ul>
   <% @meds.each do |med| %>
     <li>
@@ -19,3 +18,4 @@
     </li>
   <% end %> 
 </ul>
+

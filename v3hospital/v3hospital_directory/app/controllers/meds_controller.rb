@@ -5,10 +5,12 @@ class MedsController < ApplicationController
 
   def new
     @meds = Med.new 
+    @patients = Patient.all
   end
 
   def create
     @meds = Med.create med_params
+    @patients = Patient.all
     redirect_to meds_path
   end
 

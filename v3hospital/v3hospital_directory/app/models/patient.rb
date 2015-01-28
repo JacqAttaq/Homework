@@ -2,6 +2,7 @@ class Patient < ActiveRecord::Base
 
 has_many :patient_meds
 has_many :meds, through: :patient_meds
+has_many :doctors, as: :doctorable
 
 B_T_OPTIONS = [
   "A-",
