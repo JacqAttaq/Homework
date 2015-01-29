@@ -1,8 +1,9 @@
 == README
 
-Got part of the way through setting up both joined and polymorphic tables. 
+Tried to change my patient/gender to a string instead of boolean. Now my rake db:migrate doesn't work and
+I'm not sure why. 
 
-Not entirely successful.
-
+Did download bootstrap, but didn't get much of a chance to play with it. Spent a good bit of time going over 
+git docs. 
 
 This READ<tt>rake doc:app</tt>.
