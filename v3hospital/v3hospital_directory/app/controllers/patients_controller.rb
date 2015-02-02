@@ -1,5 +1,16 @@
 class PatientsController < ApplicationController
-  
+  before_action :set_patient, only: [
+    :show,
+    :edit,
+    :update,
+    :destroy,
+    :wait_patient,
+    :check_patient,
+    :xray_patient,
+    :surgery_patient,
+    :pay_patient,
+    :leave_patient
+  ]
   def index
     @facility = Facility.find params[:facility_id]
     @patients = Patient.all
@@ -54,9 +65,40 @@ class PatientsController < ApplicationController
     redirect_to facility_patients_path
   end
 
+  def wait_patient
+    @patient.wait!
+    redirect_to facility_patients_path
+  end
+
+  def check_patient
+    @patient.check!
+    redirect_to facility_patients_path
+  end
+  def xray_patient
+    @patient.xray!
+    redirect_to facility_patients_path
+  end
+
+  def surgery_patient
+    @patient.surgery
+    redirect_to facility_patients_path
+  end
+
+  def pay_patient
+    @patient.pay!
+    redirect_to facility_patients_path
+  end
+
+  def leave_patient
+    @patient.leave!
+    redirect_to facility_patients_path
+  end
+
 private
 
-
+  def set_patient
+    @patient = Patient.find params[:id]
+  end
   def doctor_params
     params.require(:doctor).permit(
       :name,

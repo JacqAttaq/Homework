@@ -3,7 +3,16 @@ Rails.application.routes.draw do
     member do
       post :create_doctor
     end
-    resources :patients
+    resources :patients do
+      member do
+        patch :wait_patient
+        patch :check_patient
+        patch :xray_patient
+        patch :surgery_patient
+        patch :pay_patient
+        patch :leave_patient
+      end
+    end
   end  
   resources :meds
   

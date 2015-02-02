@@ -11,10 +11,17 @@
   %li  
   =patient.first_name 
   =patient.last_name 
-  =link_to 'View Patient Info', facility_patient_path(@facility,patient) 
+  =link_to 'View Patient Info', facility_patient_path(@facility,patient), method: :patch
+  - if patient.waiting?
+    = link_to "Check", check_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "Leave", leave_patient_facility_patient_path(@facility,patient), method: :patch
 
+  -if patient.checked?
+    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient)
+    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient)
+    = link_to "Back to Waiting Area", wait_patient_facility_patient_path(@facility,patient)
+    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient)
 
-
-
-
- 
+  
