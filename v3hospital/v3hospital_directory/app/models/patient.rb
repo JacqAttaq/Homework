@@ -42,27 +42,28 @@ workflow do
     event :wait, transition_to: :waiting
     event :xray, transition_to: :xrayed
     event :surgery, transition_to: :surgeryed
-    event :pay, transition_to: :pay_bill
+    event :pay, transition_to: :paying
+
   end
 
   state :xrayed do
     event :wait, transition_to: :waiting
     event :check, transition_to: :checked
     event :surgery, transition_to: :surgeryed
-    event :pay, transition_to: :pay_bill
+    event :pay, transition_to: :paying
   end 
 
   state :surgeryed do
     event :wait, transition_to: :waiting
     event :check, transition_to: :checked
     event :xray, transition_to: :xrayed
-    event :pay, transition_to: :pay_bill
+    event :pay, transition_to: :paying
   end
 
-  state :pay_bill do
+  state :paying do
     event :leave, transition_to: :leaving
   end
 
-  state :leavng
+  state :leavng 
 end
 end

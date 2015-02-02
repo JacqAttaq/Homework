@@ -19,9 +19,19 @@
     = link_to "Leave", leave_patient_facility_patient_path(@facility,patient), method: :patch
 
   -if patient.checked?
-    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient)
-    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient)
-    = link_to "Back to Waiting Area", wait_patient_facility_patient_path(@facility,patient)
-    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient)
+    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+
+  -if patient.xrayed?
+    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+
+  -if patient.surgeryed?
+    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+
+
+  -if patient.paying?
+    = link_to "Check Out Complete", leave_patient_facility_patient_path(@facility,patient), method: :patch
 
   

@@ -80,7 +80,7 @@ class PatientsController < ApplicationController
   end
 
   def surgery_patient
-    @patient.surgery
+    @patient.surgery!
     redirect_to facility_patients_path
   end
 
