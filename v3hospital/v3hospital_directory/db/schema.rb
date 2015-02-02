@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20150127030316) do
   end
 
   create_table "patient_meds", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
     t.integer  "patient_id", limit: 4
     t.integer  "med_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "patients", force: :cascade do |t|
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150127030316) do
     t.string   "last_name",   limit: 255
     t.string   "d_o_b",       limit: 255
     t.string   "description", limit: 255
-    t.boolean  "gender",      limit: 1
+    t.string   "gender",      limit: 255
     t.string   "blood_type",  limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
