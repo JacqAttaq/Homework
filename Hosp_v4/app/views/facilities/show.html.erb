@@ -1,0 +1,31 @@
+<h3>Hospital Information</h3>
+
+<%= @facility.name %>
+<%= @facility.address %>
+<%= @facility.zip %>
+
+<%= link_to "Patient Records", facility_patients_path(@facility) %>
+<%= link_to "Medications", meds_path %>
+<p>
+
+<h4>Physicians </h4>
+<ul>
+  <%= @facility.doctors.each do | doctor| %>
+    <li>
+      <%= doctor.name %>
+      <%= doctor.specialty %>
+    </li>  
+  <% end %>
+</ul>
+
+<%= form_for @doctor, url: create_doctor_facility_path(@facility) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :specialty %>
+  <%= f.text_field :specialty %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back to Facility Directory", facilities_path %>

@@ -1,0 +1,16 @@
+<h3>Medications</h3>
+
+<%= link_to 'Add Med', new_med_path %>
+
+<ul>
+ <% @meds.each do |med| %>
+  <li>
+    <%= med.name %>
+    <%= link_to 'View', meds_path %>
+    <%= link_to 'Edit', edit_med_path(med) %>
+  </li>
+  <% end %>
+
+</ul>
+
+<%= link_to 'Facility Home', facilities_path %>

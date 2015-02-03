@@ -1,0 +1,37 @@
+= form_for([@facility,@patient]) do |f| 
+  - if @patient.errors.any? 
+    %p#notice= notice
+    -@patient.errors.full_messages.each do |message| 
+      =message
+    
+= form_for([@facility,@patient]) do |f| 
+  =f.label :first_name 
+  = f.text_field :first_name 
+  %br/
+  =f.label :last_name 
+  = f.text_field :last_name 
+  %br/  
+  =f.label :date_of_birth 
+  = f.date_field :d_o_b
+  %br/  
+  =f.label :description 
+  =f.text_area :description  
+  %br/
+  %fieldset
+  =f.label :gender 
+  Male
+  =f.radio_button :gender, "Male" 
+  Female
+  =f.radio_button :gender, "Female" 
+  %br/
+  =f.label :blood_type 
+  =f.select :blood_type, options_for_select(Patient::B_T_OPTIONS, f.object.blood_type), include_blank: "---select---"  
+  %br/
+  .field
+  =hidden_field_tag 'patient[med_ids][]',''
+  - @meds.each do |med|
+    =check_box_tag 'patient[med_ids][]', med.id,@patient.meds.include?(med)
+    = med.name
+  
+  = f.submit 
+
