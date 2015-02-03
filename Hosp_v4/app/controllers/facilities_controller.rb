@@ -2,7 +2,12 @@ class FacilitiesController < ApplicationController
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
 
   def index
-    @facilities = Facility.all
+    @facilities = if !params[:q].blank?
+    Facility.where("name LIKE ? OR address LIKE ? OR zip LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+    else
+    Facility.all
+  end
+  
   end
 
   def new
