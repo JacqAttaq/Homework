@@ -27,5 +27,11 @@
   =f.label :blood_type 
   =f.select :blood_type, options_for_select(Patient::B_T_OPTIONS, f.object.blood_type), include_blank: "---select---"  
   %br/
+  .field
+  =hidden_field_tag 'patient[med_ids][]',''
+  - @meds.each do |med|
+    =check_box_tag 'patient[med_ids][]', med.id,@patient.meds.include?(med)
+    = med.name
+  
   = f.submit 
 

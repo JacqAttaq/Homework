@@ -25,8 +25,8 @@ class FacilitiesController < ApplicationController
   end
 
   def update
-  @facility.update(fac_params)
-  redirect_to @facility
+    @facility.update(fac_params)
+    redirect_to @facility
   end
 
   def destroy
@@ -42,13 +42,13 @@ class FacilitiesController < ApplicationController
   end
 
 
-private
+  private
 
   def doctor_params
     params.require(:doctor).permit(
       :name,
       :specialty
-      )
+    )
   end
   
   def set_facility
@@ -63,5 +63,5 @@ private
     )
   end
 
-
 end
+

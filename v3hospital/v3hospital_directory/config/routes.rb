@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     end
     resources :patients do
       member do
+        patch :deactivated_patient
         patch :wait_patient
         patch :check_patient
         patch :xray_patient
         patch :surgery_patient
         patch :pay_patient
         patch :leave_patient
+       
       end
     end
   end  

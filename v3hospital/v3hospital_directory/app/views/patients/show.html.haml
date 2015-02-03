@@ -11,6 +11,7 @@
   = @patient.blood_type
 
   = link_to "Back", facility_patients_path(@facility) 
+  = link_to "Edit", edit_facility_patient_path(@facility,@patient)
  
   %ul
     -@meds.each do |med| 

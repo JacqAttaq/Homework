@@ -9,7 +9,8 @@ class PatientsController < ApplicationController
     :xray_patient,
     :surgery_patient,
     :pay_patient,
-    :leave_patient
+    :leave_patient,
+    :deactivate_patient
   ]
   def index
     @facility = Facility.find params[:facility_id]
@@ -36,11 +37,13 @@ class PatientsController < ApplicationController
 
   def edit
     @patients = Patient.find params[:id]
+    @facility = Facility.find params[:facility_id]
+    @meds = Med.all
   end
 
   def update
     @patient.update_attributes pat_params
-    redirect_to patients_path 
+    redirect_to facility_patients_path 
   end
 
   def show
@@ -65,6 +68,11 @@ class PatientsController < ApplicationController
     redirect_to facility_patients_path
   end
 
+  def deactivate_patient 
+    @patient.deactivate!
+    redirect_to facility_patients_path
+  end 
+
   def wait_patient
     @patient.wait!
     redirect_to facility_patients_path
@@ -74,6 +82,7 @@ class PatientsController < ApplicationController
     @patient.check!
     redirect_to facility_patients_path
   end
+
   def xray_patient
     @patient.xray!
     redirect_to facility_patients_path

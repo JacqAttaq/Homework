@@ -31,6 +31,10 @@ validate :age_10_or_older
 
 include Workflow
 workflow do
+  state :deactivated do
+    event :wait, transition_to: :waiting
+  end
+
   state :waiting do
     event :check, transition_to: :checked
     event :xray, transition_to: :xrayed
@@ -64,6 +68,9 @@ workflow do
     event :leave, transition_to: :leaving
   end
 
-  state :leavng 
+  state :leavng do
+    event :deactivate, transition_to: :deactivated
+  end
 end
 end
+
