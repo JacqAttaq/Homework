@@ -68,7 +68,7 @@ workflow do
     event :leave, transition_to: :leaving
   end
 
-  state :leavng do
+  state :leaving do
     event :deactivate, transition_to: :deactivated
   end
 end
