@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Hospital
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = yield
+%html
+  = form_for @doctor, url: create_doctor_facility_path(@facility) do |f|
+    = f.label :name
+    = f.text_field :name
+    %br/
+    = f.label :specialty
+    = f.text_field :specialty
+    %br/
+    = f.submit
+  = link_to "Back to Facility Directory", facilities_path
