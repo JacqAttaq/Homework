@@ -4,6 +4,13 @@
 =link_to "Home", facilities_path(@facility)
 =link_to 'New Patient', new_facility_patient_path
 
+= form_tag facility_patients_path, method: :get, class: "navbar-form", role: "search" do
+  .input-group
+    = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
+    .input-group-btn
+      %button.btn.btn-default
+        %i.glyphicon.glyphicon-search
+
 %body
 
 %ul
@@ -13,28 +20,28 @@
   =patient.last_name 
   =link_to 'View Patient Info', facility_patient_path(@facility,patient)
   
-  - if patient.deactivated?
-    = link_to "Patient Waiting", wait_patient_facility_patient(@facility,patient), method: :patch
-  - if patient.waiting?
-    = link_to "Check", check_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "Leave", leave_patient_facility_patient_path(@facility,patient), method: :patch
+  / - if patient.deactivated?
+  /   = link_to "Patient Waiting", wait_patient_facility_patient(@facility,patient), method: :patch
+  / - if patient.waiting?
+  /   = link_to "Check", check_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "Leave", leave_patient_facility_patient_path(@facility,patient), method: :patch
 
-  -if patient.checked?
-    = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+  / -if patient.checked?
+  /   = link_to "X-ray", xray_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
 
-  -if patient.xrayed?
-    = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
-    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+  / -if patient.xrayed?
+  /   = link_to "Surgery", surgery_patient_facility_patient_path(@facility,patient), method: :patch
+  /   = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
 
-  -if patient.surgeryed?
-    = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
+  / -if patient.surgeryed?
+  /   = link_to "Patient pay", pay_patient_facility_patient_path(@facility,patient), method: :patch
 
 
-  -if patient.paying?
-    = link_to "Check Out Complete", leave_patient_facility_patient_path(@facility,patient), method: :patch
+  / -if patient.paying?
+  /   = link_to "Check Out Complete", leave_patient_facility_patient_path(@facility,patient), method: :patch
 
   

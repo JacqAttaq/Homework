@@ -14,7 +14,11 @@ class PatientsController < ApplicationController
   ]
   def index
     @facility = Facility.find params[:facility_id]
-    @patients = Patient.all
+    @patients = if !params[:q].blank?
+    Patient.where("first_name LIKE ? OR last_name LIKE ? OR d_o_b LIKE ? OR description LIKE ? OR gender LIKE ? OR blood_type LIKE ?", "%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%")
+    else
+    Patient.all
+    end
   end
 
   def new
@@ -26,7 +30,7 @@ class PatientsController < ApplicationController
   def create 
     @facility = Facility.find params[:facility_id]
     @patient = @facility.patients.create pat_params
-     if @patient.save
+    if @patient.save
       flash[:notice] = 'Record Created'
       redirect_to facility_patients_path
     else
@@ -121,14 +125,14 @@ private
 
   def pat_params
     params.require(:patient).permit(
-    :first_name, 
-    :last_name,
-    :d_o_b,
-    :description,
-    :gender,
-    :blood_type,
-    med_ids: [],
-    patient_ids: []
-    )
+      :first_name,
+      :last_name,
+      :d_o_b,
+      :description,
+      :gender,
+      :blood_type, 
+      med_ids: [],
+      patient_ids: []
+      )
   end
 end
