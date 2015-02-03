@@ -1,9 +1,5 @@
-== README
+== v3 status
 
-Tried to change my patient/gender to a string instead of boolean. Now my rake db:migrate doesn't work and
-I'm not sure why. 
+added some styling and fixed some CRUD errors
 
-Did download bootstrap, but didn't get much of a chance to play with it. Spent a good bit of time going over 
-git docs. 
 
-This READ<tt>rake doc:app</tt>.
