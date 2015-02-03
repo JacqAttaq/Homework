@@ -12,7 +12,8 @@
 
   = link_to "Back", facility_patients_path(@facility) 
   = link_to "Edit", edit_facility_patient_path(@facility,@patient)
- 
+  = link_to "Delete Record", facility_patient_path(@facility,@patient), method: :delete
+
   %ul
     -@meds.each do |med| 
       %li

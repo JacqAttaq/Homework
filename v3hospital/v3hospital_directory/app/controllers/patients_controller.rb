@@ -64,8 +64,8 @@ class PatientsController < ApplicationController
   def destroy
     @facility = Facility.find params[:facility_id]
     @patient = Patient.find params[:id]
-    @patient.delete
-    redirect_to facility_patients_path
+    @patient.destroy
+    redirect_to facility_patients_path(@facility)
   end
 
   def deactivate_patient 
