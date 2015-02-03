@@ -11,7 +11,7 @@
 -@facilities.each do |facility| 
   %li
   = facility.name 
-  = link_to "Edit", edit_facility_path(facility) 
+  = link_to "Edit", edit_facility_path(facility)
   = link_to "Delete", facility_path(facility), method: :delete 
   = link_to "View", facility_path(facility)  
 

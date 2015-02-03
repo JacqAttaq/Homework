@@ -31,6 +31,7 @@ validate :age_10_or_older
 
 include Workflow
 workflow do
+
   state :deactivated do
     event :wait, transition_to: :waiting
   end
@@ -47,7 +48,6 @@ workflow do
     event :xray, transition_to: :xrayed
     event :surgery, transition_to: :surgeryed
     event :pay, transition_to: :paying
-
   end
 
   state :xrayed do

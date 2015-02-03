@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
     :surgery_patient,
     :pay_patient,
     :leave_patient,
-    :deactivate_patient
+    :deactivate_patient,
   ]
   def index
     @facility = Facility.find params[:facility_id]
