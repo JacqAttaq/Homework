@@ -30,6 +30,7 @@ class PatientsController < ApplicationController
   def create 
     @facility = Facility.find params[:facility_id]
     @patient = @facility.patients.create pat_params
+    @meds = Med.all
     if @patient.save
       flash[:notice] = 'Record Created'
       redirect_to facility_patients_path
