@@ -11,6 +11,7 @@
     %li
       = doctor.name
       = doctor.specialty
+
 = form_for @doctor, url: create_doctor_facility_path(@facility) do |f|
   = f.label :name
   = f.text_field :name

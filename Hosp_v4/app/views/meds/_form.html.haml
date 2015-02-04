@@ -1,7 +1,8 @@
 
 = form_for [@meds] do |f|
+  .form-group
   = f.label :name
-  = f.text_field :name
+  = f.text_field :name, class: "form-control validate-test"
   %br/
   = f.label :dose
   = f.text_field :dose
@@ -9,7 +10,7 @@
   = f.label :description
   = f.text_field :description
   %br/
-  = f.submit
+  = f.submit "Submit", class: "btn btn-primary disabled submit-info"
 
 
 
