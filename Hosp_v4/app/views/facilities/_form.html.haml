@@ -1,8 +1,9 @@
 = form_for @facility do |f|
+  .form-group
   = f.label :name
-  = f.text_field :name
+  = f.text_field :name, class: "form-control validate-test"
   = f.label :address
   = f.text_field :address
   = f.label :zip
   = f.text_field :zip
-  = f.submit
+  = f.submit "Submit", class: "btn btn-primary disabled submit-info"
