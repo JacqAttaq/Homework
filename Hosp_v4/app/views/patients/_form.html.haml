@@ -11,7 +11,7 @@
   %br/
   .form-group
   =f.label :last_name 
-  = f.text_field :last_name, class: "form-control validate-name"
+  = f.text_field :last_name, class: "form-control validate-test"
   %br/ 
   .form-group 
   =f.label :date_of_birth 
@@ -39,5 +39,5 @@
     =check_box_tag 'patient[med_ids][]', med.id,@patient.meds.include?(med)
     = med.name
   
-  = f.submit "Submit", class: "btn btn-primary disable submit"
+  = f.submit "Submit", class: "btn btn-primary disabled submit-info"
 
