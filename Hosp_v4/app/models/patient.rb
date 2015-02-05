@@ -18,16 +18,16 @@ B_T_OPTIONS = [
 
 validates :first_name, presence:true
 validates :last_name, presence:true
-validates :description, presence:true
+
 validates :gender, presence:true
 validates :blood_type, presence:true
-validate :age_10_or_older
+# validate :age_10_or_older
 
-  def age_10_or_older
-    if self.d_o_b
-    errors.add(:d_o_b, 'You must be over 10 years of age.') if self.d_o_b > 10.years.ago.to_date.to_s
-    end
-  end
+  # def age_10_or_older
+  #   if self.d_o_b
+  #   errors.add(:d_o_b, 'You must be over 10 years of age.') if self.d_o_b > 10.years.ago.to_date.to_s
+  #   end
+  # end
 
 include Workflow
 workflow do
