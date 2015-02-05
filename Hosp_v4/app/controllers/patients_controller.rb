@@ -57,13 +57,13 @@ class PatientsController < ApplicationController
     @patient = Patient.find params[:id]
     @meds = @patient.meds
     @doctor = Doctor.new
-    @doctors = @facility.doctors
+    @doctors = @patient.doctors
   end
 
   def create_doctor
     @patient = Patient.find params[:id]
-    @doctor = @facility.doctors.create doctor_params
-    redirect_to facility_path(@facility)
+    @doctor = @patient.doctors.create doctor_params
+    redirect_to facility_patients_path(@facility)
   end
 
   def destroy
@@ -113,6 +113,7 @@ private
   def set_patient
     @patient = Patient.find params[:id]
   end
+  
   def doctor_params
     params.require(:doctor).permit(
       :name,

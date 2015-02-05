@@ -8,3 +8,6 @@ task create_facility: :environment do
   end
   
 end
+
+
+# add a 100 clinic_id: (1..100)

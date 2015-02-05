@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         patch :surgery_patient
         patch :pay_patient
         patch :leave_patient
-       
+        post :create_doctor
       end
     end
   end  
