@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap
+ *= require bootstrap-theme
  *= require_tree .
  *= require_self
  */
@@ -28,5 +29,6 @@ h3 {
 body {
   background-color :lightgrey;
   text-align: center;
+  list-style: none;
 
 }

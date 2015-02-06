@@ -6,9 +6,9 @@
     .input-group-btn
       %button.btn.btn-default
         %i.glyphicon.glyphicon-search
+= link_to "Create New Facility", new_facility_path 
 
-
-%ul
+%ul.fac-pages
 -@facilities.each do |facility| 
   %li
   = facility.name 
@@ -17,4 +17,4 @@
   = link_to "View", facility_path(facility)  
 
 
-= link_to "Create New Facility", new_facility_path 
+
