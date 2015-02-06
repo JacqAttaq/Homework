@@ -11,3 +11,11 @@ end
 
 
 # add a 100 clinic_id: (1..100)
+
+# 10.times do
+#   a = Facility.create
+#   10.times do
+#     a.patients.create
+    
+#   end
+# end

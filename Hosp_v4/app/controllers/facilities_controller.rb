@@ -1,4 +1,5 @@
 class FacilitiesController < ApplicationController
+  require 'enumerator'
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
 
   def index
