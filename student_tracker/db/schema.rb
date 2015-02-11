@@ -11,11 +11,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211192444) do
+ActiveRecord::Schema.define(version: 20150211201134) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.text     "requirements",   limit: 65535
+    t.integer  "user_id",        limit: 4
+    t.string   "workflow_state", limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content",          limit: 65535
+    t.integer  "user_id",          limit: 4
+    t.integer  "commentable_id",   limit: 4
+    t.string   "commentable_type", limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "course_locations", force: :cascade do |t|
+    t.integer  "course_id",   limit: 4
+    t.integer  "location_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "city",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "submission", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.integer  "assignment_id",  limit: 4
+    t.integer  "user_id",        limit: 4
+    t.string   "workflow_state", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_course_locations", force: :cascade do |t|
+    t.integer  "course_location_id", limit: 4
+    t.integer  "user_id",            limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

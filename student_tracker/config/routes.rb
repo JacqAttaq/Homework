@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :installs
+  resources :users do
+    member do
+      post :create_comment
+    end
+    resources :location
+    resources :course
+    resources :assignment
+      member do
+        patch :complete
+        patch :incomplete
+      end
+      resources :submission
+    
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
