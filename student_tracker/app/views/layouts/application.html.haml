@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title StudentTracker
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          =link_to "Bob's burgers"
+    / - if notice
+    /   %p.alert.alert-success= notice
+    / - if alert
+    /   %p.alert.alert-danger= alert
+    = yield
