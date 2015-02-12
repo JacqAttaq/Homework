@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
-  skip_authorization_check
   
   def index
-
+    @locations = Location.all
   end
 end
 # resources and layout

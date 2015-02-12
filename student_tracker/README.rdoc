@@ -26,3 +26,13 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+         / - if current_user
+/   - if current_user.user
+/     = link_to 'Check In', current_user.user, class: 'button check-in'
+/   - else
+/     = link_to 'Sign Up', new_user_path, class: 'button sign-up'
+/     = link_to 'Logout', destroy_user_session_path, method: :delete
+    / - if notice
+    /   %p.alert.alert-success= notice
+    / - if alert
+    /   %p.alert.alert-danger= alert

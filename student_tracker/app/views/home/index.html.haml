@@ -1,13 +1,12 @@
 %h2 Welcome to Thunderdome
 
-- if current_user
-  - if current_user.user
-    = link_to 'Check In', current_user.user, class: 'button check-in'
-  - else
-    = link_to 'Sign Up', new_student_path, class: 'button sign-up'
-    = link_to 'Logout', destroy_user_session_path, method: :delete
-- else
-  = form_for(@resource, url: user_session_path, method: :post) do |session_form|
-    = session_form.email_field :email, class: 'large', autofocus: true
-    = session_form.password_field :password, class: 'large'
+
+%h4 Locations
+
+= link_to 'New Locations', new_location_path(@location)
+
+%h4 Courses
+
+= link_to 'New Courses', new_course_path
+
    
