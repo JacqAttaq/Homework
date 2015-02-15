@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  def index
+   def index
   end
 
   def new
@@ -8,7 +8,12 @@ class CoursesController < ApplicationController
   def create
   end
 
+  def edit
+  end
+
+  def show
+  end
+
   def destroy
   end
-     
 end

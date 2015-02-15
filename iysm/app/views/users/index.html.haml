@@ -1,0 +1,12 @@
+
+%ul
+  - @user.each do |user|
+    %li
+    = user.name
+    = link_to "Edit"
+    = link_to "Delete"
+
+
+
+= link_to "Create New User", new_user_path
+
