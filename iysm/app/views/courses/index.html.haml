@@ -1,0 +1,13 @@
+%h2 Iron Yard Courses
+
+%ul 
+  - @courses.each do |courses|
+    %li
+    = courses.name
+    = link_to "View", courses_path(courses)
+    = link_to "Edit", edit_course_path(courses)
+    = link_to "Delete", courses_path(courses), method: :delete
+
+= link_to "Create New Course", new_course_path
+
+= link_to "Home", root_path
