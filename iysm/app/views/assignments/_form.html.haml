@@ -1,0 +1,8 @@
+= form_for([@user,@assignment]) do |f|
+  =f.label :name
+  =f.text_field :name
+  %br/
+  =f.label :requirements
+  =f.text_area :requirements
+  %br/
+  =f.submit
