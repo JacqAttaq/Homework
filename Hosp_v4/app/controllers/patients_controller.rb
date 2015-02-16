@@ -73,14 +73,17 @@ class PatientsController < ApplicationController
     redirect_to facility_patients_path(@facility)
   end
 
-  def deactivate_patient 
+  def deactivated_patient 
+    @patient = Patient.find params[:id]
     @patient.deactivate!
     redirect_to facility_patients_path
+   
   end 
 
   def wait_patient
     @patient.wait!
     redirect_to facility_patients_path
+    
   end
 
   def check_patient

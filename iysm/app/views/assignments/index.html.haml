@@ -9,4 +9,5 @@
   = assignment.requirements
   = link_to "Edit", edit_user_assignment_path(@user,assignment)
   = link_to "Delete", user_assignment_path(@user,assignment), method: :delete
+  = link_to "Manage Submissions", user_assignment_submissions_path(@user,assignment)
   / workflow status
