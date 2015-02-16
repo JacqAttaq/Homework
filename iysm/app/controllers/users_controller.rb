@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @location = Location.all
+    @course = Course.all
+    @assignments = @user.assignments
   end
 
   def destroy

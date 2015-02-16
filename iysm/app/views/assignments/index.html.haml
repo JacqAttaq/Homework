@@ -1,0 +1,10 @@
+%h2 Assignments
+
+= link_to "Create New Assignment", new_user_assignment_path(@user)
+
+%ul 
+ -@assignments.each do |assignment|
+  %li
+  = assignment.name
+  = assignment.description
+  / workflow status

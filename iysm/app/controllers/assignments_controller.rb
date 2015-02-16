@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
-   def index
+  def index
+    @user = User.find params[:user_id]
   end
 
   def new

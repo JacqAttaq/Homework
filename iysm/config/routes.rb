@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    resources :assignments do
+      resources :submissions
+    end
+  end
   resources :locations
   resources :courses
     
