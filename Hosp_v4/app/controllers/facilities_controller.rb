@@ -17,7 +17,13 @@ class FacilitiesController < ApplicationController
 
   def create
     @facility = Facility.create fac_params
-    redirect_to facilities_path
+    if @facility.save
+      flash[:notice] = 'Facility Created'
+      redirect_to facilities_path
+    else 
+      flash[:error] = 'No Record Created' 
+      render :new
+    end 
   end
 
   def create_doctor

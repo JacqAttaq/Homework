@@ -1,8 +1,23 @@
 = form_for @facility do |f|
+  -if @facility.errors.any?
+    %p#notice= notice
+    -@facility.errors.full_messages.each do |message|
+      =message
+
+
+
+= form_for @facility do |f|
+  .form-group
   = f.label :name
   = f.text_field :name, class: "form-control validate-test"
+  %p.error-message Name Required
+  %br/
+  .form-group
   = f.label :address
-  = f.text_field :address
+  = f.text_field :address, class: "form-control"
+  %br/
+  .form-group
   = f.label :zip
-  = f.text_field :zip
+  = f.text_field :zip, class: "form-control"
+
   = f.submit "Submit", class: "btn btn-primary disabled submit-info"

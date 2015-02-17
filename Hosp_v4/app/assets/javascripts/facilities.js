@@ -6,17 +6,17 @@ $(document).ready(function(){
     
      }
   
-  $(".fac-pages").each_slice(10) do |column|
+  // $(".fac-pages").each_slice(10) do |column|
 
-  var show_per_page = 10;
-  var number_of_pages = math.ceil(number_of_items/show_per_page);
+  // var show_per_page = 10;
+  // var number_of_pages = math.ceil(number_of_items/show_per_page);
 
-  $('#current_page').val(0);
-  $('#show_per_page').val(show_per_page);
+  // $('#current_page').val(0);
+  // $('#show_per_page').val(show_per_page);
 
 
   });
-  
+  //   
 
 //   
 

@@ -74,7 +74,8 @@ class PatientsController < ApplicationController
   end
 
   def deactivated_patient 
-    @patient = Patient.find params[:id]
+    @facility = Facility.find params[:facility_id]
+    set_patient
     @patient.deactivate!
     respond_to do |format|
       format.js
@@ -82,32 +83,40 @@ class PatientsController < ApplicationController
   end 
 
   def wait_patient
+    @facility = Facility.find params[:facility_id]
+    set_patient
     @patient.wait!
     redirect_to facility_patients_path
     
   end
 
   def check_patient
+    @facility = Facility.find params[:facility_id]    
+    set_patient
     @patient.check!
     redirect_to facility_patients_path
   end
 
   def xray_patient
+    set_patient
     @patient.xray!
     redirect_to facility_patients_path
   end
 
   def surgery_patient
+    set_patient
     @patient.surgery!
     redirect_to facility_patients_path
   end
 
   def pay_patient
+    set_patient
     @patient.pay!
     redirect_to facility_patients_path
   end
 
   def leave_patient
+    set_patient
     @patient.leave!
     redirect_to facility_patients_path
   end
