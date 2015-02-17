@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
     @patients = if !params[:q].blank?
     Patient.where("first_name LIKE ? OR last_name LIKE ? OR d_o_b LIKE ? OR description LIKE ? OR gender LIKE ? OR blood_type LIKE ?", "%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%")
     else
-    Patient.all
+    Patient.all 
     end
   end
 
@@ -76,8 +76,9 @@ class PatientsController < ApplicationController
   def deactivated_patient 
     @patient = Patient.find params[:id]
     @patient.deactivate!
-    redirect_to facility_patients_path
-   
+    respond_to do |format|
+      format.js
+    end   
   end 
 
   def wait_patient
