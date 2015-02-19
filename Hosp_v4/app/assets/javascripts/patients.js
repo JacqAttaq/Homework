@@ -14,7 +14,7 @@ $(document).on('click','.update-wait',function(){
   var patient_id = $(this).attr("patient_id");
   $.ajax({
     type: 'PATCH',
-    url: 'facilities/'+facility_id +'/patients/' + patient_id + '/wait_patient',
+    url:'facilities/'+ facility_id +'/patients/' + patient_id + '/wait_patient',
     dataType: 'script'
   })
 })
@@ -25,7 +25,7 @@ $(document).on('click','.update-check',function(){
   console.log ("a;linfe")
   $.ajax({
     type: 'PATCH',
-    url: 'facilities/'+facility_id +'/patients/' + patient_id + '/check_patient',
+    url: '/patients/' + patient_id + '/check_patient',
     dataType: 'script'
   })
 })

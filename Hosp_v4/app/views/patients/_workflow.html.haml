@@ -1,6 +1,7 @@
 = patient.workflow_state
   -if patient.deactivated?
-  = link_to "Patient Waiting", 'javascript:void(0):', class: "update-wait", facility_id: @facility.id
+  = link_to "Patient Waiting", 'javascript:void(0);', class: 'update-wait', patient_id: @patient
+
 
 
  

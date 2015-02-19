@@ -4,13 +4,13 @@ $(document).ready(function(){
     if($('.validate-test').val() != ''){
       $("error-message").fadeOut();
     }
-  })
+  });
 
   $(".notice").fadeOut(5000);
   $(".alert").fadeOut(5000);
-  $(".notice").on (function({
+  $(".notice").on(function() {
     $(".notice").fadeOut(5000);
-    $(".alert").fadeOut(5000)
-  }))
+    $(".alert").fadeOut(5000);
+  });
 
 })

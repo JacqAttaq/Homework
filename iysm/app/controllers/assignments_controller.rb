@@ -28,10 +28,12 @@ class AssignmentsController < ApplicationController
   end
 
   private
+
   def assignment_params
     params.require(:assignment).permit(
       :name,
-      :requirements)
+      :requirements,
+      )
   end
 
   def set_assignment
@@ -42,3 +44,12 @@ class AssignmentsController < ApplicationController
     @user = User.find params[:user_id]
   end
 end
+
+
+
+
+
+
+
+
+

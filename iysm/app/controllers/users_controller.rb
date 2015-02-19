@@ -40,7 +40,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name,
       :github_name,
-      :admin_status)
+      :admin_status,
+      location_course_id: [],
+      user_id: []
+      )
   end
 
   def set_user

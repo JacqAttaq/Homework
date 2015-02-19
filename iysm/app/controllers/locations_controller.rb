@@ -36,7 +36,9 @@ class LocationsController < ApplicationController
     params.require(:location).permit(
       :name,
       :city,
-      :state
+      :state,
+      course_ids: [],
+      location_ids: []
       )
   end
 
