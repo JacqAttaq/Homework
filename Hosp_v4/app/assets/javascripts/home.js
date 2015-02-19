@@ -2,7 +2,7 @@ $(document).ready(function(){
   $(".error-message").fadeIn();
   $(".validate-test").keyup(function(){
     if($('.validate-test').val() != ''){
-      $("error-message").fadeOut();
+      $(".error-message").fadeOut();
       $(".submit-info").removeClass('disabled');
     }
   });
