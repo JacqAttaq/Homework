@@ -9,15 +9,15 @@
 = form_for @facility do |f|
   .form-group
   = f.label :name
-  = f.text_field :name, class: "form-control validate-test"
+  = f.text_field :name, class: "validate-test"
   %p.error-message Name Required
   %br/
   .form-group
   = f.label :address
-  = f.text_field :address, class: "form-control"
+  = f.text_field :address
   %br/
   .form-group
   = f.label :zip
-  = f.text_field :zip, class: "form-control"
+  = f.text_field :zip
 
   = f.submit "Submit", class: "btn btn-primary disabled submit-info"

@@ -1,10 +1,4 @@
-$(document).ready(function(){
 
-  $(".validate-test").blur(function(){
-    if($(".validate-test").val() != ""){
-      $(".submit-info").removeClass('disabled');
-    
-     }
   
   // $(".fac-pages").each_slice(10) do |column|
 
@@ -15,7 +9,6 @@ $(document).ready(function(){
   // $('#show_per_page').val(show_per_page);
 
 
-  });
   //   
 
 //   
@@ -25,5 +18,5 @@ $(document).ready(function(){
 //   start_from = page_num * show_per_page;
 //   end_on = start_from + show_per_page;
 //   )
-});
+
 
