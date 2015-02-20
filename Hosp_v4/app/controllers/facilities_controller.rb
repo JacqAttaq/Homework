@@ -8,8 +8,6 @@ class FacilitiesController < ApplicationController
     else
     Facility.all
   end
-  
-  end
 
   def new
     @facility = Facility.new

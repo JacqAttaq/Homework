@@ -1,4 +1,15 @@
 
+$(document).on('click', 'search-submit' function(){
+  console.log("test")
+  var facility_id = $(this).attr("facility_id");
+  var search = $(".search-patient").val()
+  $.ajax({
+    type: 'GET',
+    url: '/facility/'+ facility_id +'/patients/' + '/search_results'
+    dataType: 'script'
+    data: {q: search}
+  });
+});
 
 $(document).on('click','.update-wait',function(){
   var facility_id = $(this).attr("facility_id");

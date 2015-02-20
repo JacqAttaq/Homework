@@ -19,7 +19,6 @@
   =patient.first_name 
   =patient.last_name 
   =link_to 'View Patient Info', facility_patient_path(@facility,patient)
-  .workflow{class: "workflow-#{patient.id}"}
-    = render 'workflow', patient: patient
+
 
   

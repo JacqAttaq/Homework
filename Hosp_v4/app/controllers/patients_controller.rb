@@ -13,11 +13,23 @@ class PatientsController < ApplicationController
     :deactivate_patient,
   ]
   def index
+    if params[:facility_id]
     @facility = Facility.find params[:facility_id]
-    @patients = if !params[:q].blank?
-    Patient.where("first_name LIKE ? OR last_name LIKE ? OR d_o_b LIKE ? OR description LIKE ? OR gender LIKE ? OR blood_type LIKE ?", "%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%")
+    @patients = @facility.patients
+  elsif !params[:q].blank?
+    @patients = Patient.where("first_name LIKE ? OR last_name LIKE ? OR d_o_b LIKE ? OR description LIKE ? OR gender LIKE ? OR blood_type LIKE ?", "%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%")
+    @searchentry = "Search results for: #{params[:q]}"
     else
     Patient.all 
+    end
+  end
+
+  def search_results
+    Patient.where("first_name LIKE ? OR last_name LIKE ? OR d_o_b LIKE ? OR description LIKE ? OR gender LIKE ? OR blood_type LIKE ?", "%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%","%#{params[:q]}%")
+    p @patients
+    respond_to do |format|
+      format.js
+      format.html
     end
   end
 
