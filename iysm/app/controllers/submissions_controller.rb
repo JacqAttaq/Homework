@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
   end
 
   def new 
-    @submission = @user.submission.new
+    @submission = @assignment.submissions.new
   end
 
   def create
@@ -39,6 +39,7 @@ class SubmissionsController < ApplicationController
   def complete_submission
   end
   private
+  
   def sub_params
     params.require(:submission).permit(
       :name, 
@@ -50,6 +51,7 @@ class SubmissionsController < ApplicationController
   def set_user
     @user = User.find params[:user_id]
   end
+
   def set_assignment
     @assignment = Assignment.find params[:assignment_id] 
   end
