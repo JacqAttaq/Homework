@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :assignments do
+  resources :users 
+  resources :assignments do
+    member do
+      post :create_comment
+    end
+    resources :submissions do 
       member do
         post :create_comment
+        patch :incomplete_submission
+        patch :complete_submission
       end
-      resources :submissions do 
-        member do
-          post :create_comment
-          patch :incomplete_submission
-          patch :complete_submission
-        end
-        resources :links
-      end
+      resources :links
     end
   end
   resources :locations

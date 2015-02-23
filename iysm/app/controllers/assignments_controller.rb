@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-  before_action :set_user
+
 
 
   def index
@@ -40,9 +40,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find params[:id]
   end  
 
-  def set_user
-    @user = User.find params[:user_id]
-  end
+
 end
 
 

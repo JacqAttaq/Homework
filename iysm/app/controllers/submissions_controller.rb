@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :set_user
+ 
   before_action :set_assignment
 
   def index
@@ -8,16 +8,16 @@ class SubmissionsController < ApplicationController
   end
 
   def new 
-    @submission = @assignment.submissions.new
+    @submission = Submission.new 
   end
 
   def create
     
     @assignment = Assignment.find params[:assignment_id]
-    @submission = @user.assignment.submissions.create sub_params
+    @submission = @assignment.submissions.create sub_params
     if @submission.save
       flash[:notice] = 'Submission Success!'
-      redirect_to user_assignment_submissions_path(user,assignment)
+      redirect_to assignment_submissions_path(assignment)
     else
       flash[:error] = 'Sorry, Submission not Saved.'
       render :new 
@@ -39,7 +39,7 @@ class SubmissionsController < ApplicationController
   def complete_submission
   end
   private
-  
+
   def sub_params
     params.require(:submission).permit(
       :name, 
@@ -48,9 +48,7 @@ class SubmissionsController < ApplicationController
       )
   end
 
-  def set_user
-    @user = User.find params[:user_id]
-  end
+
 
   def set_assignment
     @assignment = Assignment.find params[:assignment_id] 

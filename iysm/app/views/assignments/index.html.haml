@@ -1,13 +1,13 @@
 %h2 Assignments
 
-= link_to "Create New Assignment", new_user_assignment_path(@user)
+= link_to "Create New Assignment", new_assignment_path
 
 %ul 
  -@assignments.each do |assignment|
   %li
   = assignment.name
   = assignment.requirements
-  = link_to "Edit", edit_user_assignment_path(@user,assignment)
-  = link_to "Delete", user_assignment_path(@user,assignment), method: :delete
-  = link_to "Manage Submissions", user_assignment_submissions_path(@user,assignment)
+  = link_to "Edit", edit_assignment_path(assignment)
+  = link_to "Delete", assignment_path(assignment), method: :delete
+  = link_to "Manage Submissions", assignment_submissions_path(assignment)
   / workflow status
