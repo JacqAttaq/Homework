@@ -8,12 +8,12 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-    @assignment = @user.assignments.new
+    @assignment = Assignment.new
   end
 
   def create
-    @assignment = @user.assignments.create assignment_params
-    redirect_to user_path(@user)
+    @assignment = Assignment.create assignment_params
+    redirect_to assignments_path
   end
 
   def edit
@@ -24,7 +24,7 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    redirect_to user_assignments_path(@user)
+    redirect_to assignments_path
   end
 
   private

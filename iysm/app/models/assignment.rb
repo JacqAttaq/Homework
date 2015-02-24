@@ -1,5 +1,6 @@
 class Assignment < ActiveRecord::Base
   belongs_to :user
-  has_many :submissions
+  has_one :submission
+  has_many :links, through: :submission
   has_many :comments, as: :commentable
 end
