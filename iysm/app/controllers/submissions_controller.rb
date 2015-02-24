@@ -5,6 +5,7 @@ class SubmissionsController < ApplicationController
   def index
     @links = Link.new
     @sumbissions = Submission.all
+    @comments = Comment.all
   end
 
   def new 
@@ -32,6 +33,8 @@ class SubmissionsController < ApplicationController
 
   def destroy
   end
+
+ 
 
   def incomplete_submission
   end

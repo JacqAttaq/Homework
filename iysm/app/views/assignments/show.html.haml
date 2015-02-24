@@ -1,0 +1,13 @@
+= link_to "Manage Submissions", assignment_submissions_path(@assignment)
+
+
+=form_for @comment, url:create_comment_assignment_path(@assignment) do |f|
+  =f.label :add_comment
+  =f.text_area :content
+  %br/
+  =f.submit
+
+%ul
+  -@assignment.comments.each do |comment|
+    %li
+      =comment.content
