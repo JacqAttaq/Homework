@@ -23,6 +23,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @courses = Course.all
   end
 
   def destroy
@@ -45,4 +46,5 @@ class LocationsController < ApplicationController
   def set_location
     @location = Location.find(params[:id])
   end  
+
 end
