@@ -25,4 +25,9 @@ RSpec.describe Facility, type: :model do
     expect(subject.address).to eq("3726 West St.")
     expect(subject.zip).to eq("34563")
   end
+
+  it "should have an address" do
+    expect(subject.address).not_to eq(nil)
+    expect(subject.zip).not_to eq(nil)
+  end
 end
