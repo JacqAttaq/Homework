@@ -28,4 +28,65 @@ RSpec.describe Patient, type: :model do
     expect(subject.gender).to eq("Female")
     expect(subject.blood_type).to eq("A+")
   end
+
+  it "should start in state of deactivated" do
+    expect(subject.current_state).to eq("deactivated")
+  end
+
+  it "should be able to transfer to 4 states from waiting" do
+    subject.save
+    subject.wait!
+    expect(subject.current_state.events.keys).to eq([
+      :check,
+      :xray,
+      :surgery,
+      :leave
+      ])
+  end
+
+  it "should be able to transfer to 4 states from checked" do
+    subject.save
+    subject.wait!
+    subject.check!
+    expect(subject.current_state.events.keys).to eq([
+      :wait,
+      :xray,
+      :surgery,
+      :pay
+      ])
+  end
+
+  it "should be able to transfer to 4 states from xrayed" do
+    subject.save
+    subject.wait!
+    subject.xray!
+    expect(subject.current_state.events.keys).to eq([
+      :wait,
+      :check,
+      :surgery,
+      :pay
+      ])
+  end
+
+  it "should be able to transfer to 4 states from surgery" do
+    subject.save
+    subject.wait!
+    subject.surgery!
+    expect(subject.current_state.events.keys).to eq([
+      :wait,
+      :check,
+      :xray,
+      :pay
+      ])
+  end
+
+  it "should be able to transfer to one state from paying" do
+    subject.save
+    subject.wait!
+    subject.surgery!
+    subject.pay!
+    expect(subject.current_state.events.keys).to eq([
+      :leave
+      ])
+  end
 end
