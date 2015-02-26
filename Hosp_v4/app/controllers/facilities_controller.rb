@@ -8,6 +8,7 @@ class FacilitiesController < ApplicationController
     else
     Facility.all
   end
+  end
 
   def new
     @facility = Facility.new
@@ -31,7 +32,6 @@ class FacilitiesController < ApplicationController
   end
   
   def edit
-    @facility = Facility.find params[:id]
   end
 
   def update
