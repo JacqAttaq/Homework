@@ -1,10 +1,10 @@
 class MedsController < ApplicationController
   def index
     @meds = if !params[:q].blank?
-    Med.where("name LIKE ? OR dose LIKE ? OR description LIKE ? OR", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+    Med.where("name LIKE ? OR dose LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
     else
-    @meds = Med.all
-    end
+    Med.all
+  end
   end
 
   def new

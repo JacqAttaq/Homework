@@ -1,16 +1,27 @@
 FactoryGirl.define do
   factory :facility do
     name "MUSC"
-    address "123 Main St"
+    address "Charleston"
     zip "29400"
   end
 
   factory :patient do
+    first_name "Regina"
+    last_name "Philange"
+    d_o_b "2000-12-1"
+    description "Hypothermia"
+    gender "Female"
+    blood_type "A+"
   end
 
   factory :med do
+    name "Oxycodone"
+    dose "15mg"
+    description "Opiate"
   end
 
   factory :doctor do
+    name "Dr. Danny Castellano"
+    specialty "Ob/gyn"
   end
 end
