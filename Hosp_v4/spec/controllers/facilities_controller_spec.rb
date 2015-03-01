@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FacilitiesController do
   let(:facility) {
-    Facility.create({name: "MUSC", address: "Charleston", zip: "22803"})
+  FactoryGirl.create(:facility)
   }
 
   describe 'GET #index' do
@@ -74,8 +74,10 @@ describe FacilitiesController do
 
   describe 'POST #create' do
     it 'should create a facility' do
+      
       post :create, facility: {name: "MUSC", address: "Charleston", zip: "22803"}
       expect(assigns(:facility).class).to eq Facility
+      expect(assigns(:facility).class).not_to eq (nil)
     end
   end
 end
