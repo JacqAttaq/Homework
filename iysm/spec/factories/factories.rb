@@ -7,4 +7,14 @@ FactoryGirl.define do
     password "password"
   end
 
+  factory :course do
+    name "Web Design"
+    description "Lorem ipsum"
+  end
+
+  factory :location do
+    name "Palmetto"
+    city "Charleston"
+    state "SC"
+  end
 end

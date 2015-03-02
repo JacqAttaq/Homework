@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Course, type: :model do
   subject do
-    Course.new({
-      name: "Web Design",
-      description: "Lorem ipsum"
-      })
+    FactoryGirl.create(:course)
   end
 
   it "should have a name" do
@@ -18,10 +15,12 @@ RSpec.describe Course, type: :model do
 
   it "should have a description" do
     expect(subject.description).to eq("Lorem ipsum")
+    expect(subject.description).not_to eq(nil)
   end
 
-  it "should have a description" do
+  it "should not have a description" do
     expect(subject.description).not_to eq(nil)
+    expect(subject.description).not_to eq("Bacon")
   end
 
 
