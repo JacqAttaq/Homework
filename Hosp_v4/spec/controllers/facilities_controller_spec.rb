@@ -67,9 +67,27 @@ describe FacilitiesController do
     it 'should show a facility object' do
       get :show, id: facility
       expect(assigns(:facility)).to eq facility
+      expect(assigns(:facility)).not_to eq(nil)
+    end  
+    
+    it 'should show doctor creation' do
+      get :show, id: facility
       expect(assigns(:doctor).new_record?).to eq(true)
       expect(assigns(:doctor).class).to eq(Doctor)
-    end  
+    end
+
+    it 'should show access to patient records' do
+      get :show, id: facility
+      expect(assigns(:patients)).to eq([])
+      expect(assigns(:patients).class).to eq(Patient::ActiveRecord_Associations_CollectionProxy)
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'should delete a facility' do
+      delete :destroy, id: facility.id
+      expect(assigns(:facility)).to eq facility
+    end
   end
 
   describe 'POST #create' do

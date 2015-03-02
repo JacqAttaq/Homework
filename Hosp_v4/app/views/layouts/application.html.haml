@@ -8,15 +8,5 @@
     %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :rel => "stylesheet"}/
     %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"}
   %body
-    
-  .container
-    
-
-
-    .contianer.theme-showcase{:role => "main"}
-      %div.row
-        %div.col-md-3
-          = render 'layouts/sidebar'
-        %div.col-md-9
-          = yield
-
+  
+  = yield 
