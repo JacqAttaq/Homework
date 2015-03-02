@@ -3,15 +3,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject do
-    User.new ({
-      name: "Jane Doe",
-      github_name: "StudentZero",
-      admin_status: false
-      })
+    FactoryGirl.create(:user)
   end
 
   it "should have name" do
-    expect(subject.name).to eq("Jane Doe")
+    expect(subject.name).to eq("Alex Keaton")
   end
 
   it "should not have name" do
@@ -19,7 +15,7 @@ RSpec.describe User, type: :model do
   end
 
   it "should have github name" do
-    expect(subject.github_name).to eq("StudentZero")
+    expect(subject.github_name).to eq("AKeaton")
   end
 
   it "should have github name" do
