@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Location, type: :model do |variable|
-  subject do
+RSpec.describe Location, type: :model do
+  subject do  
     FactoryGirl.create(:location)
   end
 

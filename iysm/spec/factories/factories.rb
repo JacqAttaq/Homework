@@ -17,4 +17,15 @@ FactoryGirl.define do
     city "Charleston"
     state "SC"
   end
+
+  factory :assignment do
+    name "Project 1"
+    requirements "Build an app"
+  end
+
+  factory :submission do
+    name "HW"
+    content "Code"
+    workflow_state "incomplete"
+  end
 end

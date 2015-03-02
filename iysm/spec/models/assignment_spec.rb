@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Assignment, type: :method do
   subject do
-    Assignment.new({
-      name: "Project 1",
-      requirements: "Build an app"
-      })
+    FactoryGirl.create(:assignment)
   end
 
   let (:comment) do
@@ -19,9 +16,6 @@ RSpec.describe Assignment, type: :method do
   end
   it "should have a name" do
     expect(subject.name).to eq("Project 1")
-  end
-
-  it "should have a name" do
     expect(subject.name).not_to eq(nil)
   end
 
@@ -31,9 +25,7 @@ RSpec.describe Assignment, type: :method do
 
   it "it should not have requirements" do
     expect(subject.requirements).not_to eq(nil)
+    expect(subject.requirements).not_to eq("Breed chinchillas")
   end
-
-
-
 
 end

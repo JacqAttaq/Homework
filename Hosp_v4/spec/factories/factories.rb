@@ -6,10 +6,10 @@ FactoryGirl.define do
   end
 
   factory :patient do
-    first_name "Regina"
-    last_name "Philange"
-    d_o_b "2000-12-1"
-    description "Hypothermia"
+    first_name "Alice"
+    last_name "Cooper"
+    d_o_b "1999-01-02"
+    description "Heart Attack"
     gender "Female"
     blood_type "A+"
   end
