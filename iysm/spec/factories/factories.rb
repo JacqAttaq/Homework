@@ -28,4 +28,10 @@ FactoryGirl.define do
     content "Code"
     workflow_state "incomplete"
   end
+
+  factory :comment do
+    content "stuff"
+  end
+
+  
 end

@@ -15,9 +15,9 @@ FactoryGirl.define do
   end
 
   factory :med do
-    name "Oxycodone"
-    dose "15mg"
-    description "Opiate"
+    name "Morphine"
+    dose "30 mg"
+    description "Painkiller"
   end
 
   factory :doctor do
