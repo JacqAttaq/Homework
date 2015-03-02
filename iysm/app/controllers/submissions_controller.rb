@@ -32,6 +32,7 @@ class SubmissionsController < ApplicationController
   end
 
   def destroy
+    
   end
 
  

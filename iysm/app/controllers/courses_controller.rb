@@ -27,8 +27,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @location.destroy
-    redirect_to locations_path
+    @course.destroy
+    redirect_to courses_path
   end
 
   private
