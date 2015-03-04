@@ -1,0 +1,11 @@
+=@course.name
+
+=@course.description
+
+%ul
+  -@locations.each do |location|
+    %li
+      =location.name
+      =location.city
+      =location.state
+

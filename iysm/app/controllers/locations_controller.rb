@@ -17,10 +17,12 @@ class LocationsController < ApplicationController
 
   def edit
     @location = Location.find params[:id]
+    @courses = Course.all
   end
 
   def update
     @location.update(loc_params)
+    @courses = Course.all
     redirect_to locations_path
   end
 

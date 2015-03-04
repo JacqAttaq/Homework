@@ -4,7 +4,7 @@
   - @courses.each do |courses|
     %li
     = courses.name
-    = link_to "View", courses_path(courses)
+    = link_to "View", course_path(courses)
     = link_to "Edit", edit_course_path(courses)
     = link_to "Delete", courses_path(courses), method: :delete
 
