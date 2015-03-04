@@ -8,4 +8,10 @@
   = f.label :state
   = f.text_field :state
   %br/
-  =f.submit
+  = hidden_field_tag 'location[course_ids][]', ''
+  -@courses.each do |course|
+    %label
+      =check_box_tag 'location[course_ids][]', course.id
+      =course.name
+
+  =f.submit 

@@ -6,10 +6,12 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @courses = Course.all
   end
 
   def create
     @location = Location.create loc_params
+    @courses = Course.all
     redirect_to locations_path
   end
 

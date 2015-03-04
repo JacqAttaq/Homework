@@ -1,5 +1,8 @@
-%h3 -@location.name
+=@location.name
 
 %h4 Available Courses
-
-= render 'course_form'
+%ul
+-@courses.each do |course|
+  %li
+    =course.name
+    =course.description

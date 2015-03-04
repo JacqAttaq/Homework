@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:update_location, :show, :edit, :update, :destroy]
   before_action :authenticate_user!
  
   def index
     @user = User.all
   end
+
+  def update_location
+    @locations = locations.map{|l| [l.city, l.id]}.insert(0, "Select a location")
+    
+
+  end
+
+  def update_course_location
+  end
+
+
 
   def new
     @user = User.new
