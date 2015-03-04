@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @locations = Location.all
+    @locations = @course.locations
   end
 
   def destroy

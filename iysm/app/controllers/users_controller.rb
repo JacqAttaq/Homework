@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update_location, :show, :edit, :update, :destroy]
   before_action :authenticate_user!
- 
+  before_action :set_course
+  before_action :set_location
+
   def index
     @user = User.all
   end
 
-  def update_location
-    @locations = locations.map{|l| [l.city, l.id]}.insert(0, "Select a location")
-    
-
-  end
 
   def update_course_location
   end
@@ -28,16 +25,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+
   end
 
   def update
+    @locations = Location.all
     @user.update(user_params)
     redirect_to users_path
   end
 
   def show
-    @location = Location.all
-    @course = Course.all
+  
     @assignments = @user.assignments
   end
 
@@ -60,5 +58,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_course
+    @courses = Course.all
+  end
+
+  def set_location
+    @locations = Location.all
   end
 end
