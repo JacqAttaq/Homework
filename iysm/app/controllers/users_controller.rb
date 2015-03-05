@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @locations = Location.all
   end
 
   def create
@@ -25,17 +26,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
-
   end
 
   def update
-    @locations = Location.all
     @user.update(user_params)
     redirect_to users_path
   end
 
   def show
-  
+    
     @assignments = @user.assignments
   end
 
