@@ -16,7 +16,7 @@
 
 = form_for @doctor, url: create_doctor_facility_path(@facility) do |f|
   = f.label :name
-  = f.text_field :name
+  = f.text_field :name, class: "validate-test"
   %br/
   = f.label :specialty
   = f.text_field :specialty

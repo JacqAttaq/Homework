@@ -1,4 +1,6 @@
 class MedsController < ApplicationController
+  require 'enumerator'
+
   def index
     @meds = if !params[:q].blank?
     Med.where("name LIKE ? OR dose LIKE ? OR description LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")

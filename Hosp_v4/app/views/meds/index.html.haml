@@ -14,7 +14,7 @@
 .row
 - x = 0
 - y = 1
-%ul{class:"med_list"}
+%ul{class: "med_list"}
   - @meds.each_slice(10) do |row|
     %li{class: "section_#{x+1}"}
     - x = x+1
@@ -24,11 +24,14 @@
           = med.name
           = link_to 'View', meds_path
           = link_to 'Edit', edit_med_path(med)
+        %br/
+.col-md-12.text-center
+  %ul{class: "link_list"}
+    - x.times do
+      %li{class: "link_#{y}"}
+        %a{class: "link_#{y}", med_num: y}
+          ="page#{y}"
+      - y += 1
 
-/ %ul{class: "link_list"}
-/   -x.times.do
-/     %li{class: "link_#{y}"}
-/       %a{class: "link_#{y}"}
-/         ="page#{y}"
-/       ="*"
-/     - y += 1
+
+    
