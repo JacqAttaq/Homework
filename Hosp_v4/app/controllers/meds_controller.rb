@@ -30,6 +30,12 @@ class MedsController < ApplicationController
     redirect_to meds_path
   end
 
+  def destroy
+    @med = Med.find params[:id]
+    @med.destroy
+    redirect_to meds_path
+  end
+
 private 
   def med_params
     params.require(:med).permit(

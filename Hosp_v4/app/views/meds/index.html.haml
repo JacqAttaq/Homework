@@ -24,6 +24,7 @@
           = med.name
           = link_to 'View', meds_path
           = link_to 'Edit', edit_med_path(med)
+          = link_to 'Delete', med_path(med), method: :delete
         %br/
 .col-md-12.text-center
   %ul{class: "link_list"}
