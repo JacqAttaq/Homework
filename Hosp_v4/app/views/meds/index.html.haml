@@ -11,28 +11,31 @@
 
 = link_to 'Add Med', new_med_path
 
-.row
-- x = 0
-- y = 1
-%ul{class: "med_list"}
-  - @meds.each_slice(10) do |row|
-    %li{class: "section_#{x+1}"}
-    - x = x+1
-    - row.each do |med|
-      .col-md-3
-        .list-group-item
-          = med.name
-          = link_to 'View', meds_path
-          = link_to 'Edit', edit_med_path(med)
-          = link_to 'Delete', med_path(med), method: :delete
-        %br/
+.container-fluid
+  .row
+  - x = 0
+  - y = 1
+  %ul{class: "property_list"}
+    - @meds.each_slice(10) do |row|
+      %li{class: "section_#{x+1}"}
+      - x = x+1
+      - row.each do |med|
+        .col-md-3
+          .list-group-item
+            = med.name
+            = link_to 'View', meds_path
+            = link_to 'Edit', edit_med_path(med)
+            = link_to 'Delete', med_path(med), method: :delete
+          %br/
 .col-md-12.text-center
   %ul{class: "link_list"}
     - x.times do
       %li{class: "link_#{y}"}
         %a{class: "link_#{y}", med_num: y}
-          ="page#{y}"
+          ="page #{y}"
       - y += 1
+%br/
+
 
 
     

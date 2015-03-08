@@ -13,12 +13,29 @@
       %button.btn.btn-default
         %i.glyphicon.glyphicon-search
 
-%ul
-- @patients.each do |patient| 
-  %li  
-  =patient.first_name 
-  =patient.last_name 
-  =link_to 'View Patient Info', facility_patient_path(@facility,patient)
+.container-fluid
+  .row
+  - x = 0
+  - y = 1
+  %ul{class: "property_list"}
+    - @patients.each_slice(10) do |row|
+      %li{class: "section_#{x+1}"}
+      - x = x+1
+      - row.each do |patient|
+        .col-md-3
+          .list-group-item    
+            =patient.first_name 
+            =patient.last_name 
+            =link_to 'View Patient Info', facility_patient_path(@facility,patient)
+
+.col-md-12.text-center
+  %ul{class: "link_list"}
+    - x.times do
+      %li{class: "link_#{y}"}
+        %a{class: "link_#{y}", med_num: y}
+          ="page #{y}"
+      - y += 1
+
 
 
   
