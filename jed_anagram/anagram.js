@@ -12,9 +12,14 @@ for (var listen in words) {
   else {
     anagrams[sorted]= [word];
   }
-
+}
   for (var sorted in anagrams){
     var words = anagrams[sorted];
-    var sep - 
-  }
+    var sep = ",";
+    var out = "";
+    for (var n in words) {
+      out += sep + words[n];
+      sep = "":
+    }
+    document.writeln(sorted +":" + out = "<br/>")
 }
