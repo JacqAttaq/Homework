@@ -10,9 +10,8 @@ class UsersController < ApplicationController
 
 
   def update_course_location
+    @location = course_location
   end
-
-
 
   def new
     @user = User.new

@@ -11,9 +11,21 @@ $(document).on('click', 'search-submit' function(){
   });
 });
 
+$(document).on('click', 'update-deactivate', function(){
+  facility_id = $("facility_id");
+  patient_id = $("patient_id");
+  $.ajax({
+    type: 'PATCH'
+    url: 'facilities/' + facility_id + '/patients/' + patient_id + 'deactivated_patient',
+    dataType: 'script'
+  })
+
+
+})
+
 $(document).on('click','.update-wait',function(){
-  var facility_id = $(this).attr("facility_id");
-  var patient_id = $(this).attr("patient_id");
+  var facility_id = $("facility_id");
+  var patient_id = $("patient_id");
   $.ajax({
     type: 'PATCH',
     url:'facilities/'+ facility_id +'/patients/' + patient_id + '/wait_patient',

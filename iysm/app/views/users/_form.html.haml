@@ -8,20 +8,22 @@
   =f.text_field :github_name
   %br/
 
-  =hidden_field_tag 'location[course_ids][]', ''
+  =f.submit
+
+  / =hidden_field_tag 'location[course_ids][]', ''
 
 
-  %h4 Locations
+  / %h4 Locations
 
-  -@locations.each do |location|
-  %br/
-  = location.name
+  / -@locations.each do |location|
+  /   %br/
+  /   = location.name
 
 
-  %h4 Courses
-  -@courses.each do |course|
-  %br/
-  =course.name
+  / %h4 Courses
+  / -@courses.each do |course|
+  /   %br/
+  /   = course.name
 
 
 
