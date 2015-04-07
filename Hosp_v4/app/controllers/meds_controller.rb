@@ -7,6 +7,7 @@ class MedsController < ApplicationController
     else
     Med.all
   end
+  @meds = Med.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

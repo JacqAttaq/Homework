@@ -27,10 +27,8 @@ h3 {
 }
 
 
-
-}
-body {
-  background-color :lightgrey;
+.jumbotron {
+  background-color :red;
   text-align: center;
   list-style: none;
 

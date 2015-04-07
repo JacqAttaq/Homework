@@ -24,6 +24,7 @@ class PatientsController < ApplicationController
     else
     Patient.all 
     end
+  @patients = Patient.paginate(:page => params[:page], :per_page => 10)
   end
 
   def search_results

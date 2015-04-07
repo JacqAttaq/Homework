@@ -7,7 +7,8 @@ class FacilitiesController < ApplicationController
     Facility.where("name LIKE ? OR address LIKE ? OR zip LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
     else
     Facility.all
-  end
+    end
+    @facilities = Facility.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
