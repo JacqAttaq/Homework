@@ -18,7 +18,13 @@ class MedsController < ApplicationController
   def create
     @meds = Med.create med_params
     @patients = Patient.all
-    redirect_to meds_path
+    if @med.save 
+      flash[:notice] = 'Medication Record Created'
+      redirect_to meds_path
+    else 
+      flash[:error] = 'No Record Created' 
+      render :new
+    end
   end
 
   def edit
@@ -28,7 +34,12 @@ class MedsController < ApplicationController
   def update
     @med = Med.find params[:id]
     @med.update(med_params)
-    redirect_to meds_path
+    if @med.save
+      flash[:notice] = 'Medication Record Updated'
+      redirect_to meds_path
+    else 
+      flash[:error] = 'Update Not Saved'
+      render :edit
   end
 
   def destroy

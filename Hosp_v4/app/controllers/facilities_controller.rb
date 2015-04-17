@@ -29,7 +29,13 @@ class FacilitiesController < ApplicationController
   def create_doctor
     @facility = Facility.find params[:id]
     @doctor = @facility.doctors.create doctor_params
-    redirect_to facility_path(@facility)
+    if @doctor.save
+      flash[:notice] = 'Doctor Record Created'
+      redirect_to facility_path(@facility)
+    else
+      flash[:error] = 'No Record Created'
+      redirect_to facilities_path
+    end
   end
   
   def edit
@@ -37,7 +43,13 @@ class FacilitiesController < ApplicationController
 
   def update
     @facility.update(fac_params)
-    redirect_to @facility
+    if @facility.save
+      flash[:notice] = 'Facility Updated'
+      redirect_to @facility
+    else
+      flash[:error] = 'Updates not saved'
+      render :edit
+    end
   end
 
   def destroy
@@ -71,6 +83,7 @@ class FacilitiesController < ApplicationController
       :name,
       :address,
       :zip,
+      :specialty
     )
   end
 

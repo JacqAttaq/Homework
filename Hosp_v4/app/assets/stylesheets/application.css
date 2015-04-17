@@ -27,9 +27,11 @@ h3 {
 }
 
 
-.jumbotron {
-  background-color :red;
+body {
+  background-color: cornsilk;
+  list-style-type: none;
   text-align: center;
-  list-style: none;
+ 
 
 }
+

@@ -1,7 +1,7 @@
 %h3 Patient Records
 
 
-=link_to "Home", facilities_path(@facility)
+=link_to "Facility Home", facility_path(@facility)
 =link_to 'New Patient', new_facility_patient_path
 
 
@@ -14,16 +14,16 @@
         %i.glyphicon.glyphicon-search
 
 
-.container-fluid
-  .row
-    %ul
-      -@patients.each do |patient| 
-        %li
-        = patient.last_name
-        = patient.first_name 
-        = link_to "Edit", edit_facility_patient_path(@facility, patient)  
-        = link_to "Delete", facility_patient_path(@facility, patient), method: :delete 
-        = link_to "View", facility_patient_path(@facility, patient)  
+.container
+ 
+  %ul
+    -@patients.each do |patient| 
+      %li
+      = patient.last_name
+      = patient.first_name 
+      = link_to "Edit", edit_facility_patient_path(@facility, patient)  
+      = link_to "Delete", facility_patient_path(@facility, patient), method: :delete 
+      = link_to "View", facility_patient_path(@facility, patient)  
 
 
 = will_paginate @facilities 

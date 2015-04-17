@@ -47,7 +47,7 @@ class PatientsController < ApplicationController
     @patient = @facility.patients.create pat_params
     @meds = Med.all
     if @patient.save
-      flash[:notice] = 'Record Created'
+      flash[:notice] = 'Patient Record Created'
       redirect_to facility_patients_path
     else
       flash[:error] = 'No Record Created'
@@ -62,7 +62,14 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient.update_attributes pat_params
+    @patient.update_attributes pat_paramsif @patient.save
+    if @patient.save  
+      flash[:notice] = 'Patient Record Created'
+      redirect_to facility_patients_path
+    else
+      flash[:error] = 'No Record Created'
+      render :new
+    end
     redirect_to facility_patients_path 
   end
 

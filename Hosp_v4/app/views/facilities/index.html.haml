@@ -8,9 +8,9 @@
         %i.glyphicon.glyphicon-search
 = link_to "Create New Facility", new_facility_path 
 
-.container-fluid
+.container
   .row
-    %ul{class: "body"}
+    %ul
       -@facilities.each do |facility| 
         %li
         = facility.name 
