@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on(function(){
   $(".validate-test").blur(function(){
     if($(".validate-test").val() != "")
        console.log("Remove disabled");

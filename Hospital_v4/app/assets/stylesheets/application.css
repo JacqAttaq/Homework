@@ -27,11 +27,10 @@ h3 {
 }
 
 
-body {
-  background-color: cornsilk;
-  list-style-type: none;
-  text-align: center;
+body ul li{
  
+  list-style: none;
+  text-align: center;
 
 }
 

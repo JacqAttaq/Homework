@@ -1,5 +1,14 @@
 == README
 
+Example:
+
+User_Course_Location -
+Ruby on Rails
+Charleston, SC
+Gunther Perk
+
+User signs in and can select class - interacts with assignments as student or teacher.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
