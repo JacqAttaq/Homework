@@ -1,17 +1,21 @@
-%h3 Hospital Information
+%h4 Hospital Information
 = @facility.name
+%br
 = @facility.address
 = @facility.zip
+%br
 = link_to "Patient Records", facility_patients_path(@facility)
 = link_to "Medications", meds_path
 
 
 %p
-%h4 Physicians
+%h5 Physicians/Specialties
 %ul
-  - @facility.doctors.each do |doctor|
+  -@facility.doctors.each do |doctor|
     %li
+      = "Dr."    
       = doctor.name
+      = "-"
       = doctor.specialty
 
 = form_for @doctor, url: create_doctor_facility_path(@facility) do |f|

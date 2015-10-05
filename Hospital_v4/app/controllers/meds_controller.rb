@@ -40,6 +40,7 @@ class MedsController < ApplicationController
     else 
       flash[:error] = 'Update Not Saved'
       render :edit
+    end
   end
 
   def destroy

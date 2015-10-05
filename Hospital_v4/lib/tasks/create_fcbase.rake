@@ -11,7 +11,7 @@ task create_fcbase: :environment do
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         d_o_b: Faker::Date.between(80.years.ago, 10.years.ago),
-        description: Faker::Lorem.words(15,true),
+        description: Faker::Lorem.paragraph,
         gender: ["male", "female"].sample,
         blood_type: [
            "A-",
@@ -25,6 +25,6 @@ task create_fcbase: :environment do
           ].sample,
         })
       end
-  end
+    end
   puts "100 facilities with 15 patients created"
 end

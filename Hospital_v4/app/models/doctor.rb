@@ -5,7 +5,7 @@ class Doctor < ActiveRecord::Base
     "Allergy",
     "Oncology",
     "Endocronologist",
-    "Emergeny",
+    "Emergency",
     "Intensive Care",
     "Podiatry",
     "Geriatrics",
